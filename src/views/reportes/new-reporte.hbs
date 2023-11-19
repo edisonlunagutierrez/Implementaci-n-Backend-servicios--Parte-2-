@@ -1,0 +1,100 @@
+<div class="col-md-4 mx-auto">
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>Nuevo Reporte</h3>
+        </div>
+        <div class="card-body">
+            <form action="/reportes/new-reporte" method="POST" id="reporteForm">
+                <div class="form-group">
+                    <label for="localidad">Localidad:</label>
+                    <input type="text" name="localidad" class="form-control" placeholder="Localidad" required value="">
+                </div>
+                <div class="form-group">
+                    <label for="barrio">Barrio:</label>
+                    <input type="text" name="barrio" class="form-control" placeholder="Barrio" required value="">
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea name="descripcion" placeholder="Descripción" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fechaIncidente">Fecha del Incidente:</label>
+                    <input type="date" name="fechaIncidente" class="form-control" required value="">
+                </div>
+                <div class="form-group">
+                    <label for="situacionRiesgo">Situación de Riesgo:</label>
+                    <input type="text" name="situacionRiesgo" class="form-control" placeholder="Situación de Riesgo"
+                        required value="">
+                </div>
+                <div class="form-group">
+                    <label for="tipoActor">Tipo de Actor:</label>
+                    <input type="text" name="tipoActor" class="form-control" placeholder="Tipo de Actor" required
+                        value="">
+                </div>
+                <div class="form-group">
+                    <label for="ubicacion">Ubicación (Coordenadas):</label>
+                    <input type="text" name="ubicacion.coordinates" class="form-control"
+                        placeholder="Ubicación (Coordenadas)" required value="">
+                </div>
+                <div class="form-group">
+                    <label for="ubicacion.type">Tipo de Ubicación:</label>
+                    <input type="text" name="ubicacion.type" class="form-control" placeholder="Tipo de Ubicación"
+                        required value="">
+                </div>
+                <div class="form-group">
+                    <label for="senalTransitoPresente">Señal de Tránsito Presente:</label>
+                    <input type="checkbox" name="senalTransitoPresente" id="senalTransitoPresente">
+                </div>
+                <div id="datosSenalTransito" style="display: none;">
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Señal:</label>
+                        <input type="text" name="tipo" class="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="funcional">Funcional:</label>
+                        <input type="checkbox" name="funcional">
+                    </div>
+                    <div class="form-group" id="senalPropuestaContainer">
+                        <label for="senalPropuesta">Señal Propuesta:</label>
+                        <input type="text" name="senalPropuesta" class="form-control" value="">
+                    </div>
+                    <div class="form-group" id="argumentoContainer">
+                        <label for="argumento">Argumento:</label>
+                        <input type="text" name="argumento" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    const checkboxSenalTransitoPresente = document.getElementById('senalTransitoPresente');
+    const datosSenalTransito = document.getElementById('datosSenalTransito');
+    const checkboxFuncional = document.querySelector('[name="funcional"]');
+    const senalPropuestaContainer = document.getElementById('senalPropuestaContainer');
+    const argumentoContainer = document.getElementById('argumentoContainer');
+
+    checkboxSenalTransitoPresente.addEventListener('change', function () {
+        datosSenalTransito.style.display = checkboxSenalTransitoPresente.checked ? 'block' : 'none';
+        updateCamposSegunCheckbox();
+    });
+
+    checkboxFuncional.addEventListener('change', function () {
+        updateCamposSegunCheckbox();
+    });
+
+    function updateCamposSegunCheckbox() {
+        if (checkboxSenalTransitoPresente.checked) {
+            senalPropuestaContainer.style.display = checkboxFuncional.checked ? 'none' : 'block';
+            argumentoContainer.style.display = checkboxFuncional.checked ? 'none' : 'block';
+        } else {
+            senalPropuestaContainer.style.display = 'none';
+            argumentoContainer.style.display = 'none';
+        }
+    }
+</script>

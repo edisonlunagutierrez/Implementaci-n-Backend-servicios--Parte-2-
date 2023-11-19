@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card mt-5 bg-black text-white rounded">
+            <div class="card-header text-center pt-5">
+                <h1 class="h4 text-white">
+                    Ingresar a la cuenta
+                </h1>
+            </div>
+            <img class="rounded-circle mx-auto d-block logo m-4" src="/img/upc.png" alt="Logo" />
+            <div class="card-body">
+                <form action="/usuarios/ingresar" method="POST">
+                    <div class="mb-3">
+                        <label for="Correo">Correo:</label>
+                        <input type="Correo" class="form-control bg-dark text-white" name="Correo" placeholder="Correo"
+                            value="{{Correo}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="Contrasena">Contraseña</label>
+                        <input type="password" class="form-control bg-dark text-white" name="Contrasena"
+                            placeholder="Contraseña" value="{{Contrasena}}" />
+                    </div>
+                    <button class="btn btn-success btn-block">
+                        Iniciar sesion
+                    </button>
+                </form>
+            </div>
+
+            <p class="text-center">No tiene una cuenta registrada? <a href="/usuarios/registrarse"
+                    class="text-info">Registrarse</a></p>
+        </div>
+    </div>
+</div>

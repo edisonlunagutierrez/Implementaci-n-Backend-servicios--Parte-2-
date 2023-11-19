@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card bg-black text-white">
+            <div class="card-header pt-5">
+                <h4 class="text-center">
+                    Cree una cuenta nueva
+                </h4>
+            </div>
+            <div class="card-body">
+                <form action="/usuarios/registrarse" method="POST">
+                    <div class="mb-3">
+                        <label for="Nombre">Nombre:</label>
+                        <input type="Nombre" class="form-control bg-dark text-white" name="Nombre" placeholder="Nombre"
+                            value="{{Nombre}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="Correo">Correo:</label>
+                        <input type="Correo" class="form-control bg-dark text-white" name="Correo" placeholder="Correo"
+                            value="{{Correo}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="Telefono">Telefono:</label>
+                        <input type="Telefono" class="form-control bg-dark text-white" name="Telefono" placeholder="Telefono"
+                            value="{{Telefono}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="Direccion">Direccion:</label>
+                        <input type="Direccion" class="form-control bg-dark text-white" name="Direccion" placeholder="Direccion"
+                            value="{{Direccion}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="Rol">Rol:</label>
+                        <input type="Rol" class="form-control bg-dark text-white" name="Rol" placeholder="Rol"
+                            value="{{Rol}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="Contrasena">Contrasena</label>
+                        <input type="password" class="form-control bg-dark text-white" name="Contrasena"
+                            placeholder="Contrasena" value="{{Contrasena}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="Confirmar_contrasena">Confirmar contraseña:</label>
+                        <input type="password" class="form-control bg-dark text-white" name="Confirmar_contrasena"
+                            placeholder="Confirmar contrasena" value="{{Confirmar_contrasena}}" />
+                    </div>
+                    <button class="btn btn-success btn-block">
+                        Registrar usuario nuevo
+                    </button>
+                </form>
+            </div>
+            <p class="text-center">Ya tiene una cuenta creada?
+                <a href="/usuarios/ingresar" class="text-info">Ingresar!</a>
+            </p>
+        </div>
+    </div>
+</div>
